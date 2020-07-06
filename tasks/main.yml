@@ -1,0 +1,42 @@
+# vim: ai et ts=2 st=2 sw=2 :
+---
+- name: check if we're running supported os
+  assert:
+    fail_msg: "{{ role_name }} only supports ubuntu versions 12, 14, 16, 18 and centos versions 6, 7!"
+    success_msg: "{{ role_name }} supports {{ ansible_distribution }} version {{ ansible_distribution_version }}"
+    quiet: "{{ not ansible_check_mode }}"
+    that:
+      ( ansible_distribution|lower == "ubuntu" and ansible_distribution_version|int in [12, 14, 16, 18] )
+      or ( ansible_distribution|lower == "centos" and ansible_distribution_major_version|int in [6, 7, 8] )
+
+- name: specific config for debian and redhat systems
+  include: "{{ ansible_os_family | lower }}.yml"
+
+- name: ensure that ca-certificates is installed
+  package:
+    name: ca-certificates
+
+- name: set variable for os_family
+  set_fact:
+    os_family: "{{ ansible_os_family | lower }}"
+    cert_path:
+      debian: /usr/local/share/ca-certificates
+      redhat: /etc/pki/ca-trust/source/anchors
+    update_command:
+      debian: update-ca-certificates
+      redhat: update-ca-trust
+
+- name: distribute certificates
+  copy:
+    content: '{{ item }}'
+    dest: '{{ cert_path[os_family] }}/cert{{ index }}.crt'
+  loop: '{{ ca_certs }}'
+  loop_control:
+    index_var: index
+  register: certificates
+
+- name: update ca certificate store
+  command: '{{ update_command[os_family] }}'
+  register: update_ca_certificates
+  changed_when: update_ca_certificates.rc == 0
+  when: certificates is changed

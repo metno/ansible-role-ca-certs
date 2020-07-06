@@ -1,7 +1,7 @@
 ca-certs
 ========
 
-Role for adding one or more extra root certificates to the machine store.
+Role for adding one or more extra CA certificates to the machine store.
 
 Version
 -------
@@ -108,7 +108,7 @@ cat ~/.ssh/config | grep ^Host | cut -d\  -f2 | xargs cssh
 License
 -------
 
-MIT / BSD
+GPLv2
 
 Author Information
 ------------------

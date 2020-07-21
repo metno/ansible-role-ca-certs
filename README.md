@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `1.0.1` --- tested with Ansible 2.9.11
 * `1.0.0` --- initial role
 * `master` --- latest development version
 

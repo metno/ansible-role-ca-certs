@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `1.1.1` --- workaround for false positive lint error
 * `1.1.0` --- added ubuntu focal, 20.04
 * `1.0.1` --- tested with Ansible 2.9.11
 * `1.0.0` --- initial role
@@ -20,7 +21,6 @@ This role is limited to
 * Ubuntu 18.04 - Bionic
 * Ubuntu 16.04 - Xenial
 * Ubuntu 14.04 - Trusty
-* Ubuntu 12.04 - Precise
 * CentOS 8
 * CentOS 7
 * CentOS 6

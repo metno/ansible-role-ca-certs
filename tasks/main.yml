@@ -1,6 +1,6 @@
 # vim: ai et ts=2 st=2 sw=2 :
 ---
-- name: check if we're running supported os
+- name: check if we are running supported os
   assert:
     fail_msg: "{{ role_name }} only supports ubuntu versions 12, 14, 16, 18, 20 and centos versions 6, 7, 8!"
     success_msg: "{{ role_name }} supports {{ ansible_distribution }} version {{ ansible_distribution_version }}"
@@ -30,6 +30,7 @@
   copy:
     content: '{{ item }}'
     dest: '{{ cert_path[os_family] }}/cert{{ index }}.crt'
+    mode: 0644
   loop: '{{ ca_certs }}'
   loop_control:
     index_var: index

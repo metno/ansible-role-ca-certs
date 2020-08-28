@@ -1,6 +1,5 @@
 # vim: ai et ts=2 st=2 sw=2 :
 ---
-
 - name: install selinux binding
   yum:
     name: libselinux-python

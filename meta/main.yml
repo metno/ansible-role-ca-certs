@@ -19,7 +19,6 @@ galaxy_info:
       - 20.04
       - 18.04
       - 16.04
-      - 14.04
   - name: RHEL
     versions:
       - 8

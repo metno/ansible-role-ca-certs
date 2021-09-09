@@ -1,11 +1,2 @@
 # vim: ai et ts=2 st=2 sw=2 :
 ---
-- name: install selinux binding
-  yum:
-    name: libselinux-python
-  when: ansible_distribution_major_version|int in [7]
-
-- name: install selinux binding centos/rhel 8
-  yum:
-    name: python3-libselinux
-  when: ansible_distribution_major_version|int in [8]

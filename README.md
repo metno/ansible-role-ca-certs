@@ -6,7 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
-* `1.1.2` --- added RHEL 8, removed CentOS 6 + trusty
+* `1.1.2` --- added RHEL 8 support, removed CentOS 6, trusty, precise
 * `1.1.1` --- workaround for false positive lint error
 * `1.1.0` --- added ubuntu focal, 20.04
 * `1.0.1` --- tested with Ansible 2.9.11

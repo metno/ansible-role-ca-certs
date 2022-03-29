@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `1.3.0` --- added  Ubuntu Jammy 22.04 support, removed CentOS 8 support
 * `1.2.0` --- added RHEL 8 support, removed CentOS 6, trusty, precise
 * `1.1.1` --- workaround for false positive lint error
 * `1.1.0` --- added ubuntu focal, 20.04
@@ -18,10 +19,10 @@ Requirements
 
 This role is limited to
 
+* Ubuntu 22.04 - Jammy
 * Ubuntu 20.04 - Focal
 * Ubuntu 18.04 - Bionic
 * Ubuntu 16.04 - Xenial
-* CentOS 8
 * CentOS 7
 * RHEL 8
 

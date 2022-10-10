@@ -2,3 +2,5 @@ skip_list:
   - '106'
   - no-handler
   - fqcn-builtins
+  - deprecated-module
+

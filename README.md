@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `1.4.0` --- added RHEL9 and CentOS 8 Stream support
 * `1.3.0` --- added  Ubuntu Jammy 22.04 support, removed CentOS 8 support
 * `1.2.0` --- added RHEL 8 support, removed CentOS 6, trusty, precise
 * `1.1.1` --- workaround for false positive lint error
@@ -24,7 +25,9 @@ This role is limited to
 * Ubuntu 18.04 - Bionic
 * Ubuntu 16.04 - Xenial
 * CentOS 7
+* CentOS 8 Stream
 * RHEL 8
+* RHEL 9
 
 Role Variables
 --------------

@@ -13,6 +13,7 @@ galaxy_info:
     - name: CentOS
       versions:
         - 7
+        - 8
     - name: Ubuntu
       versions:
         - 22.04
@@ -22,6 +23,7 @@ galaxy_info:
     - name: RHEL
       versions:
         - 8
+        - 9
 
   galaxy_tags:
     - certificates

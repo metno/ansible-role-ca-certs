@@ -4,6 +4,8 @@ galaxy_info:
   author: Arnulf Heimsbakk
   description: Add certificates to local CA store
   company: MET Norway
+  role_name: ca_cert
+  namespace: met
 
   license: GPLv2
 

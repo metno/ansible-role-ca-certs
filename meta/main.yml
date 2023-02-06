@@ -6,31 +6,30 @@ galaxy_info:
   company: MET Norway
   role_name: ca_cert
   namespace: met
+  standalone: true
 
   license: GPLv2
 
-  min_ansible_version: 2.9
+  min_ansible_version: "2.12"
 
   platforms:
-    - name: CentOS
-      versions:
-        - 7
-        - 8
     - name: Ubuntu
       versions:
-        - 22.04
-        - 20.04
-        - 18.04
-        - 16.04
-    - name: RHEL
+        - "jammy"
+        - "focal"
+        - "bionic"
+    - name: EL
       versions:
-        - 8
-        - 9
+        - "7"
+        - "8"
+        - "9"
 
   galaxy_tags:
     - certificates
     - certificate
     - cert
     - certs
+
+collections: []
 
 dependencies: []

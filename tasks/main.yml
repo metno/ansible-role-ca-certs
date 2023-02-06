@@ -1,7 +1,7 @@
 # vim: ai et ts=2 st=2 sw=2 :
 ---
-- name: check if we are running supported os
-  assert:
+- name: Check if we are running supported os
+  ansible.builtin.assert:
     fail_msg: "{{ role_name }} only supports ubuntu versions 16, 18, 20, 22,   centos versions 7, centos strem versions 8, rhel versions 8, 9!"
     success_msg: "{{ role_name }} supports {{ ansible_distribution }} version {{ ansible_distribution_version }}"
     quiet: "{{ not ansible_check_mode }}"
@@ -10,15 +10,15 @@
       or ( ansible_distribution|lower == "centos" and ansible_distribution_major_version|int in [7, 8] )
       or ( ansible_distribution|lower == "redhat" and ansible_distribution_major_version|int in [8, 9] )
 
-- name: specific config for debian and redhat systems
-  include: "{{ ansible_os_family | lower }}.yml"
+- name: Specific config for debian and redhat systems
+  ansible.builtin.include: "{{ ansible_os_family | lower }}.yml"
 
-- name: ensure that ca-certificates is installed
-  package:
+- name: Ensure that ca-certificates is installed
+  ansible.builtin.package:
     name: ca-certificates
 
-- name: set variable for os_family
-  set_fact:
+- name: Set variable for os_family
+  ansible.builtin.set_fact:
     os_family: "{{ ansible_os_family | lower }}"
     cert_path:
       debian: /usr/local/share/ca-certificates
@@ -27,8 +27,8 @@
       debian: update-ca-certificates
       redhat: update-ca-trust
 
-- name: distribute certificates
-  copy:
+- name: Distribute certificates
+  ansible.builtin.copy:
     content: '{{ item }}'
     dest: '{{ cert_path[os_family] }}/cert{{ index }}.crt'
     mode: 0644
@@ -37,8 +37,8 @@
     index_var: index
   register: certificates
 
-- name: update ca certificate store
-  command: '{{ update_command[os_family] }}'
+- name: Update ca certificate store
+  ansible.builtin.command: '{{ update_command[os_family] }}'
   register: update_ca_certificates
   changed_when: update_ca_certificates.rc == 0
   when: certificates is changed

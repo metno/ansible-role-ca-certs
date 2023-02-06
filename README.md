@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `2.0.0` --- upgraded to ansible 2.12
 * `1.4.0` --- added RHEL9 and CentOS 8 Stream support
 * `1.3.0` --- added  Ubuntu Jammy 22.04 support, removed CentOS 8 support
 * `1.2.0` --- added RHEL 8 support, removed CentOS 6, trusty, precise

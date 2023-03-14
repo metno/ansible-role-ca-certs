@@ -11,7 +11,8 @@
       or ( ansible_distribution|lower == "redhat" and ansible_distribution_major_version|int in [8, 9] )
 
 - name: Specific config for debian and redhat systems
-  ansible.builtin.include: "{{ ansible_os_family | lower }}.yml"
+  ansible.builtin.include_tasks:
+    file: "{{ ansible_os_family | lower }}.yml"
 
 - name: Ensure that ca-certificates is installed
   ansible.builtin.package:
@@ -31,7 +32,7 @@
   ansible.builtin.copy:
     content: '{{ item }}'
     dest: '{{ cert_path[os_family] }}/cert{{ index }}.crt'
-    mode: 0644
+    mode: '0644'
   loop: '{{ ca_certs }}'
   loop_control:
     index_var: index

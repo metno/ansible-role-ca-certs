@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `2.1.0` --- added ubuntu noble 22.04 support
 * `2.0.1` --- bug fix, ansible-lint
 * `2.0.0` --- upgraded to ansible 2.12
 * `1.4.0` --- added RHEL9 and CentOS 8 Stream support
@@ -22,6 +23,7 @@ Requirements
 
 This role is limited to
 
+* Ubuntu 24.04 - Noble
 * Ubuntu 22.04 - Jammy
 * Ubuntu 20.04 - Focal
 * Ubuntu 18.04 - Bionic

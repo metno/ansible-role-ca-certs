@@ -5,8 +5,7 @@ galaxy_info:
   description: Add certificates to local CA store
   company: MET Norway
   role_name: ca_cert
-  namespace: met
-  standalone: true
+  namespace: metno
 
   license: GPLv2
 
@@ -15,9 +14,11 @@ galaxy_info:
   platforms:
     - name: Ubuntu
       versions:
+        - "noble"
         - "jammy"
         - "focal"
         - "bionic"
+        - "xenial"
     - name: EL
       versions:
         - "7"

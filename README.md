@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `3.0.0` --- Added support for ansible-core 2.16. Removed support for Ubuntu Xenial and Ubuntu Bionic.
 * `2.1.0` --- added ubuntu noble 24.04 support
 * `2.0.1` --- bug fix, ansible-lint
 * `2.0.0` --- upgraded to ansible 2.12
@@ -26,8 +27,6 @@ This role is limited to
 * Ubuntu 24.04 - Noble
 * Ubuntu 22.04 - Jammy
 * Ubuntu 20.04 - Focal
-* Ubuntu 18.04 - Bionic
-* Ubuntu 16.04 - Xenial
 * CentOS 7
 * CentOS 8 Stream
 * RHEL 8
@@ -124,6 +123,7 @@ GPLv2
 Author Information
 ------------------
 
-Created 2020 by [Arnulf Heimsbakk](mailto:arnulf.heimsbakk@met.no) for MET Norway.
+Created 2020 by IT Infrastructure at MET Norway
+Contactpoint: [IT Infrastructure Basis Team](mailto:it-is-basis@met.no)
 
 ###### set vim: spell spelllang=en:

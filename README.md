@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `3.0.1` --- Change test setup to use Ansible Molecule
 * `3.0.0` --- Added support for ansible-core 2.16. Removed support for Ubuntu Xenial and Ubuntu Bionic.
 * `2.1.0` --- added ubuntu noble 24.04 support
 * `2.0.1` --- bug fix, ansible-lint

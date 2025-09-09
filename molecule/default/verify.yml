@@ -1,0 +1,53 @@
+- name: Verify
+  become: true
+  hosts: all
+  gather_facts: true
+
+  tasks:
+    - name: Set variable for os_family
+      ansible.builtin.set_fact:
+        os_family: "{{ ansible_os_family | lower }}"
+        cert_path:
+          debian: /usr/local/share/ca-certificates
+          redhat: /etc/pki/ca-trust/source/anchors
+
+    - name: Set variable for file paths
+      ansible.builtin.set_fact:
+        file_paths:
+          - "{{ cert_path[os_family] }}/cert0.crt"
+          - "{{ cert_path[os_family] }}/cert1.crt"
+
+    - name: Ensure the number of files matches the number of items in ca_certs
+      fail:
+        msg: "The number of files and variable contents do not match!"
+      when: ca_certs | length != file_paths | length
+
+    - name: Read the content of certificate files
+      slurp:
+        path: "{{ item }}"
+      register: file_contents
+      loop: "{{ file_paths }}"
+      loop_control:
+        label: "{{ item }}"
+
+    - name: Decode the file contents
+      set_fact:
+        file_decoded_content: "{{ file_contents.results | map(attribute='content') | map('b64decode') | list }}"
+
+    - name: Compare certificate file with ca_certs variable
+      set_fact:
+        comparison_results: >-
+          {{
+            (comparison_results | default([])) +
+            [(item.1 == item.2)]
+          }}
+      loop: "{{ file_paths | zip(file_decoded_content, ca_certs) | list }}"
+      loop_control:
+        label: "{{ item.0 }}"
+
+    - name: Assert all files match their corresponding variable content
+      assert:
+        that:
+          - comparison_results | select('equalto', false) | list | length == 0
+        fail_msg: "One or more files do not match their set certificates!"
+        success_msg: "All files match their corresponding certificate."

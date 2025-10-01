@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `3.1.0` --- Added support for RHEL10. The role now supports os_family = redhat.
 * `3.0.1` --- Change test setup to use Ansible Molecule
 * `3.0.0` --- Added support for ansible-core 2.16. Removed support for Ubuntu Xenial and Ubuntu Bionic.
 * `2.1.0` --- added ubuntu noble 24.04 support
@@ -23,15 +24,12 @@ Version
 Requirements
 ------------
 
-This role is limited to
+This role supports
 
-* Ubuntu 24.04 - Noble
-* Ubuntu 22.04 - Jammy
-* Ubuntu 20.04 - Focal
+* RedHat Based OS, version 8, 9, 10
+* Ubuntu 20.04, 22.04, and 24.04
 * CentOS 7
-* CentOS 8 Stream
-* RHEL 8
-* RHEL 9
+* CentOS Stream 8
 
 Role Variables
 --------------

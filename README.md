@@ -6,6 +6,7 @@ Role for adding one or more extra CA certificates to the machine store.
 Version
 -------
 
+* `3.1.1` --- Updated molecule test setup
 * `3.1.0` --- Added support for RHEL10. The role now supports os_family = redhat.
 * `3.0.1` --- Change test setup to use Ansible Molecule
 * `3.0.0` --- Added support for ansible-core 2.16. Removed support for Ubuntu Xenial and Ubuntu Bionic.
@@ -90,9 +91,11 @@ openssl req -x509 -subj CN=machine.foo.bar -addext subjectAltName=DNS:foo.bar -n
 Testing
 -------
 
-Testing is done using Ansible Molecule. It uses Vagrant with libvirt as backend.
+Testing is done using Ansible Molecule. It uses our libvirt-provision role as backend.
 
-To run full test run:
+Testing is done Almalinux, and Ubuntu.
+
+To run test:
 
 ```bash
 molecule test
@@ -103,13 +106,9 @@ To run test step by step run:
 ```bash
 molecule create
 molecule converge
+molecule idempotence
 molecule verify
 molecule destroy
-```
-
-To run toward specific scenario use `-s` option.
-```
-molecule test -s ubuntu
 ```
 
 License

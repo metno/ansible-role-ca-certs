@@ -6,6 +6,7 @@ driver:
     login_cmd_template: "ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no -l {user} {address}"
 
 platforms:
+  - name: ca-certs-resolute
   - name: ca-certs-noble
   - name: ca-certs-jammy
   - name: ca-certs-alma8
